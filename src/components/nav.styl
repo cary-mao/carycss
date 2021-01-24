@@ -1,0 +1,21 @@
+@import '../themes'
+@import '../utils'
+
+.nav
+  @extend .u-clearfix
+  list-style none
+  border-bottom nav_border
+  margin-bottom 0
+  margin-top 0
+  padding nav_padding
+  &_item
+    @extend .u-fl
+    padding nav_item_padding
+  &_link
+    display block
+    text-decoration nav_item_text_decoration
+    cursor pointer
+    color nav_link_color
+    &:hover,
+    &-active
+      color nav_link_active_color
