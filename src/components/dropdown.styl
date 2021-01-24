@@ -1,0 +1,35 @@
+@import '../themes'
+
+.dropdown
+  position relative
+  display inline-block
+  padding dropdown_padding
+  &:hover > &_toggle
+    color dropdown_toggle_active_color
+  &:hover > &_icon
+    color dropdown_icon_active_color
+  &_toggle
+    color dropdown_toggle_color
+    cursor pointer
+    text-decoration none
+  &_icon
+    cursor pointer
+    vertical-align baseline
+    color dropdown_icon_color
+  &_menu
+    display none
+    position absolute
+    // padding dropdown_menu_padding
+    list-style none
+    border dropdown_menu_border
+    margin-top dropdown_menu_margin_top
+    box-shadow dropdown_menu_box_shadow
+    &-active
+      display block
+    &_item
+      padding dropdown_menu_item_padding
+      border-bottom dropdown_menu_item_border
+      cursor pointer
+      &:hover
+        color dropdown_menu_item_active_color
+        background-color dropdown_menu_item_active_bg_color
