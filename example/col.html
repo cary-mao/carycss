@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/layouts/index.css">
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+    }
+    .box-auto {
+      height: 100px;
+    }
+    .red {
+      background: red;
+    }
+    .blue {
+      background: blue;
+    }
+    .yellow {
+      background: yellow;
+    }
+    .green {
+      background: green;
+    }
+    .pink {
+      background: pink;
+    }
+    .gray {
+      background: gray;
+    }
+    .white {
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="l-bfc">
+    <div class="l-bfc_right box red"></div>
+    <div class="l-bfc_left box red"></div>
+    <div class="l-bfc_auto box-auto blue"></div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="l-floatn">
+    <div class="l-floatn_left box red"></div>
+    <div class="l-floatn_right box yellow"></div>
+    <div class="box-auto pink" style="margin-left: 100px; margin-right: 100px">
+      <div class="box green">green</div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="l-posn">
+    <div class="l-posn_left box yellow"></div>
+    <div class="l-posn_right box blue"></div>
+    <div class="box-auto green" style="margin-left: 100px; margin-right: 100px;"></div>
+  </div>
+
+  <br>
+
+  <div class="l-flexn">
+    <div class="box pink"></div>
+    <div class="l-flexn_auto red"></div>
+    <div class="box yellow"></div>
+  </div>
+
+  <br>
+
+  <div class="l-iflexn" style="width: 500px;">
+    <div class="box pink"></div>
+    <div class="l-iflexn_auto red"></div>
+    <div class="box yellow"></div>
+  </div>
+
+  <br>
+
+  <div class="l-container" style="padding: 10px 15px; background: black;">
+    <div class="l-row">
+      <div class="l-col1 l-col-offset2 box-auto gray">
+        <div class="box-auto white"></div>
+      </div>
+      <div class="l-col1 box-auto gray">
+        <div class="box-auto white"></div>
+      </div>
+      <div class="l-col1 box-auto gray">
+        <div class="box-auto white"></div>
+      </div>
+    </div>
+    <div class="l-row">
+      <div class="l-col4 l-col-push8 box-auto gray">
+        <div class="box-auto white"></div>
+      </div>
+      <div class="l-col8 l-col-pull4 box-auto yellow">
+        <div class="box-auto white"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+@import '../themes'
+@import '../utils'
+
+$tab_btn_hover_active
+  color tab_btn_active_color
+
+.tab
+  border tab_border
+  padding tab_padding
+  &_header
+    @extend .u-clearfix
+    border-left tab_header_border
+    border-bottom tab_header_border
+    &::after,
+    &::before
+      content ''
+      display table
+  &_btn
+    @extend .u-fl
+    display block
+    min-width tab_btn_width
+    border-top tab_btn_border
+    border-right tab_btn_border
+    border-bottom tab_btn_border
+    text-align center
+    padding-left tab_btn_padding_x
+    padding-right tab_btn_padding_x
+    line-height tab_btn_line_height
+    color tab_btn_color
+    cursor pointer
+    background-color tab_btn_bg_color
+    font-size tab_btn_text_size
+    margin-bottom -1px
+    &:hover
+      @extend $tab_btn_hover_active
+    &-active
+      @extend $tab_btn_hover_active
+      border-bottom-color c_transpt
+  &_content
+    display none
+    padding tab_content_padding
+    &-active
+      display block

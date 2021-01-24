@@ -1,0 +1,88 @@
+/*
+  关于列的布局样式
+*/
+
+@import '../utils'
+
+/**
+  $name bfc
+  $desc 左右选择性固定，一个自适应的布局
+  $scope 当两边宽度固定（或不确定[推荐]），中间宽度自适应时使用
+*/
+.l-bfc
+  &_auto
+    overflow hidden
+  &_left
+    @extend .u-fl
+  &_right
+    @extend .u-fr
+
+/**
+  $name floatn
+  $desc 使用float实现的两列布局，需要配合margin使用
+  $scope 当一列宽度确定，另一列宽度自适应时使用
+*/
+.l-floatn
+  @extend .u-clearfix
+  /**
+    $parent floatn
+    $name left
+    $desc 左侧固定
+  */
+  &_left
+    @extend .u-fl
+  /**
+    $parent floatn
+    $name right
+    $desc 右侧固定
+  */
+  &_right
+    @extend .u-fr
+
+/**
+  $name pos2
+  $desc 使用position实现的两列布局，需要配合margin使用
+  $scope 当父容器的高度确定（height或min-height）或者自适应列的高度（可以是撑开的高度）大于等于固定列高度时使用
+*/
+$l-pos_fixed
+  position absolute
+  top 0
+.l-posn
+  position relative
+  /**
+    $parent pos2
+    $name left
+    $desc 左侧固定
+  */
+  &_left
+    @extend $l-pos_fixed
+    left 0
+  /**
+    $parent pos2
+    $name left
+    $desc 右侧固定
+  */
+  &_right
+    @extend $l-pos_fixed
+    right 0
+
+$flex_auto
+  flex-grow 1
+
+/**
+  $name flexn
+  $desc 使用flex实现一列固定，其他列平分剩余宽度的布局
+*/
+.l-flexn
+  display flex
+  &_auto
+    @extend $flex_auto
+
+/**
+  $name iflexn
+  $desc 使用inline-flex实现一列固定，其他列平分剩余宽度的布局
+*/
+.l-iflexn
+  display inline-flex
+  &_auto
+    @extend $flex_auto

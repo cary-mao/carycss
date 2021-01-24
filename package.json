@@ -1,0 +1,36 @@
+{
+  "name": "carycss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx cross-env NODE_ENV=development npx gulp dev",
+    "build": "npx cross-env NODE_ENV=production npx gulp build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.3",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-stylus": "^2.7.0",
+    "hexo-cli": "^4.2.0",
+    "postcss": "^8.2.4",
+    "postcss-discard-duplicates": "^4.0.2",
+    "postcss-merge-rules": "^4.0.3",
+    "rollup": "^2.37.0",
+    "shelljs": "^0.8.4",
+    "stylus": "^0.54.8",
+    "yamljs": "^0.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

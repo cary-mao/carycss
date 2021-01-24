@@ -1,0 +1,15 @@
+styles:
+  src: './src/**/*.styl'
+  dest: './dist/styles'
+templates:
+  src: './example/**/*.html'
+  dest: './dist'
+dev:
+  # https://www.npmjs.com/package/gulp-stylus
+  stylus:
+    compress: false
+prod:
+  stylus:
+    compress: true
+docs:
+  pass: true

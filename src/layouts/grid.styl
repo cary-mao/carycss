@@ -1,0 +1,32 @@
+@import '../themes'
+@import '../utils'
+
+/**
+  grid system for layout like bootstrap
+*/
+.l-container
+  width auto
+
+.l-row
+  @extend .u-clearfix
+  margin (gutter_y / -2) (gutter_x / -2)
+
+$l-col
+  position relative
+  float left
+  padding-left gutter_x / 2
+  padding-right gutter_x / 2
+  box-sizing border-box
+
+for n in (1..col_num)
+  .l-col
+    &{n}
+      @extend $l-col
+      width percentage(n / col_num)
+    if n < 12
+      &-offset{n}
+        margin-left percentage(n / col_num)
+      &-pull{n}
+        right percentage(n / col_num)
+      &-push{n}
+        left percentage(n / col_num)
