@@ -1,0 +1,12 @@
+nav:
+  - href: '/'
+    text: '首页'
+  - href: '/docs'
+    text: '文档'
+menu:
+  - href: '/component'
+    text: '组件'
+  - href: '/layout'
+    text: '布局'
+  - href: '/util'
+    text: '工具'

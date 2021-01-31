@@ -4,6 +4,9 @@ styles:
 templates:
   src: './example/**/*.html'
   dest: './dist'
+scripts:
+  src: './src/**/*.js'
+  dest: './dist'
 dev:
   # https://www.npmjs.com/package/gulp-stylus
   stylus:

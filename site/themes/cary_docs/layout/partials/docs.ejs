@@ -1,0 +1,38 @@
+<%
+  const p = require('path')
+%>
+
+<nav id="nav">
+  <ul class="nav">
+  <%
+    const isSetActivedNavItem = theme.nav.some(n => !!n.actived)
+    theme.nav.forEach((n, i) => {
+  %>
+    <li class="nav_item<%= (n.actived || !isSetActivedNavItem && i === 0) ? ' nav_item-active' : '' %>">
+      <a class="nav_link<%= (n.actived || !isSetActivedNavItem && i === 0) ? ' nav_link-active' : '' %>" href="<%= config.root + n.href %>"><%= n.text %></a>
+    </li>
+  <%
+    })
+  %>
+  </ul>
+</nav>
+<div class="l-floatn">
+  <sidebar class="l-floatn_left">
+    <ul class="menu sidebar-menu">
+    <%
+      theme.menu.forEach(m => {
+    %>
+      <li class="menu_item">
+        <a href="<%= m.href %>"><%= p.join('docs', m.text) %></a>
+      </li>
+    <%
+      })
+    %>
+    </ul>
+  </sidebar>
+  <main id="main">
+    <%-
+      page.content
+    %>
+  </main>
+</div>

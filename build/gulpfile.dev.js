@@ -5,6 +5,9 @@ const cleanCSS = require('gulp-clean-css')
 const { getConfig, configPath } = require('./util')
 const connect = require('gulp-connect')
 const postcss = require('gulp-postcss')
+const { babel } = require('@rollup/plugin-babel')
+const rollup = require('gulp-better-rollup')
+const commonjs = require('@rollup/plugin-commonjs')
 
 const config = getConfig()
 
@@ -23,11 +26,21 @@ function copyTemplates () {
     .pipe(connect.reload())
 }
 
-const compile = gulp.parallel(compileStyles, copyTemplates)
+function compileScripts () {
+  return gulp.src(config.scripts.src)
+    .pipe(rollup({
+      plugins: [babel(), commonjs()]
+    }, 'iife'))
+    .pipe(gulp.dest(config.scripts.dest))
+    .pipe(connect.reload())
+}
+
+const compile = gulp.parallel(compileStyles, copyTemplates, compileScripts)
 
 function watch () {
   gulp.watch(config.styles.src, compileStyles)
   gulp.watch(config.templates.src, copyTemplates)
+  gulp.watch(config.scripts.src, compileScripts)
   gulp.watch(configPath, compile)
 }
 

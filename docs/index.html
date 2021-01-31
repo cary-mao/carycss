@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A</title>
+  <link rel="stylesheet" href="/carycss/vendor/highlight/styles/a11y-dark.css">
+  <link rel="stylesheet" href="/carycss/vendor/carycss/index.css">
+  <link rel="stylesheet" href="/carycss/cary_docs.css">
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body>
+  partial('./partials/docs')
+<hr>
+<p>title: A<br>d: 1<br>c:</p>
+<ul>
+<li>d</li>
+</ul>
+<hr>
+<h1 id="index"><a href="#index" class="headerlink" title="index"></a>index</h1><div class="html-display">
+<a class="button">button</a>
+</div><div class="codetab tab"><div class="tab_header"><a class="tab_btn tab_btn-active" data-toggle>html</a><a class="tab_btn" data-toggle>styl</a></div><div class="tab_content tab_content-active"><pre><code class="html">
+&lt;a class=&quot;button&quot;&gt;button&lt;/a&gt;
+</code></pre></div><div class="tab_content">
+@import '../themes'
+
+.button
+  padding button_padding
+  color button_color
+  background-color button_bg_color
+  cursor pointer
+  border button_border
+  outline none
+  &:hover
+    color button_active_color
+    background-color button_active_bg_color
+</div></div><div class="html-display"></div><div class="codetab tab"><div class="tab_header"></div></div>
+
+</body>
+</html>
+
+<script src="/carycss/vendor/highlight/highlight.pack.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
+  });
+});
+</script>

@@ -1,0 +1,1 @@
+exports.say = () => 'hello require'
