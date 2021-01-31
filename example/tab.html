@@ -9,30 +9,23 @@
 <body>
   <div class="tab">
     <div class="tab_header">
-      <a class="tab_btn tab_btn-active" data-toggle>html</a>
-      <a class="tab_btn" data-toggle>stylus</a>
+      <a class="tab_btn tab_btn-active">html</a>
+      <a class="tab_btn">stylus</a>
     </div>
     <div class="tab_content">
       123
     </div>
-    <div class="tab_content tab_content-active">
+    <div class="tab_content">
       234
     </div>
   </div>
 </body>
 </html>
 
+<script src="./scripts/carycss.js"></script>
 <script>
-  var btns = document.querySelectorAll('[data-toggle]')
-  var header = document.querySelector('.tab_header')
-  header.addEventListener('click', e => {
-    var target = e.target
-    if (target.classList.contains('tab_btn-active')) return
-    target.classList.add('tab_btn-active')
-    btns.forEach(b => {
-      if (b !== target) {
-        b.classList.remove('tab_btn-active')
-      }
-    })
+  const Tab = carycss.Tab
+  new Tab('.tab', {
+    useClasses: true
   })
 </script>

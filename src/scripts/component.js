@@ -2,6 +2,7 @@
 let id = 1
 
 const { cache } = require('./global')
+const { isDef } = require('./util')
 
 /**
  * @exports Component
@@ -18,7 +19,7 @@ function Component (name, selector) {
     throw new Error(`[Component ${name}]: ${name} can be used as a constructor.`)
   }
 
-  if (this.cache) {
+  if (cache) {
     this._caches = {}
     this._cache = true
   }
@@ -28,23 +29,34 @@ function Component (name, selector) {
   this.selector = selector
 }
 
+
+Component.prototype._get = function (funName, name, selector, root) {
+  name = isDef(name) ? name : this.name
+  selector = selector || this.selector
+  root = root || document
+  let ele = this._cache ? this.getCache(name) : null
+  const fun = root[funName]
+
+  if (!ele) {
+    ele = fun.call(root, selector)
+    // if name is truthy and cache is enabled, then ele will be cached
+    this._cache && name && this.cache(name, ele)
+  }
+
+  return ele
+}
+
 /**
  * @param {string} name
  * @param {string} selector
  * @param {Element} root
  */
 Component.prototype.get = function (name, selector, root) {
-  name = name || this.name
-  selector = selector || this.selector
-  root = root || document
-  let ele = this._cache ? this.getCache(name) : null
+  return this._get('querySelector', name, selector, root)
+}
 
-  if (!ele) {
-    ele = document.querySelector(selector)
-    this._cache && this.cache(name, ele)
-  }
-
-  return ele
+Component.prototype.getAll = function (name, selector, root) {
+  return [].slice.call(this._get('querySelectorAll', name, selector, root))
 }
 
 Component.prototype.cache = function (name, ele) {
